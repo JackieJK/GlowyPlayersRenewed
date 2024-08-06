@@ -1,18 +1,26 @@
 package com.github.jackiejk.glowyplayersrenewed;
 
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(Constants.MOD_ID)
 public class GlowyPlayersRenewed {
 
   public GlowyPlayersRenewed() {
-
-    // This method is invoked by the Forge mod loader when it is ready
-    // to load your mod. You can access Forge and Common code in this
-    // project.
-
-    // Use Forge to bootstrap the Common mod.
-    CommonClass.init();
-
+    MinecraftForge.EVENT_BUS.addListener(GlowyPlayersRenewed::onEntityLoad);
   }
+
+
+  public static void onEntityLoad(EntityJoinLevelEvent event) {
+    Level level = event.getLevel();
+    if (!(level instanceof ServerLevel)) {
+      return;
+    }
+    WorldJoinEvent.onSpawn((ServerLevel) level, event.getEntity());
+  }
+
+
 }
