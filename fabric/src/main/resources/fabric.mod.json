@@ -8,11 +8,11 @@
     "${mod_author}"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "${home_page}",
+    "issues": "${issue_tracker_url}"
   },
   "license": "${license}",
-  "icon": "assets/modid/${mod_id}.png",
+  "icon": "assets/${mod_id}/logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -20,8 +20,6 @@
     ]
   },
   "mixins": [
-    "${mod_id}.mixins.json",
-    "${mod_id}.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14",
