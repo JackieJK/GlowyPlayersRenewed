@@ -9,6 +9,7 @@ displayURL = "${home_page}"
 issueTrackerURL = "${issue_tracker_url}"
 authors = "${mod_author}" #optional
 description = '''${description}''' #mandatory (Supports multiline text)
+logoFile = "assets/${mod_id}/logo.png"
 [[dependencies.${ mod_id }]] #optional
 modId = "forge" #mandatory
 mandatory = true #mandatory
