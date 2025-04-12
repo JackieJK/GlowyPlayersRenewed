@@ -2,7 +2,9 @@ package com.github.jackiejk.glowyplayersrenewed;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 
 public class GlowyPlayersRenewed implements ModInitializer {
@@ -11,7 +13,13 @@ public class GlowyPlayersRenewed implements ModInitializer {
   public void onInitialize() {
 
     ServerEntityEvents.ENTITY_LOAD.register(
-            (Entity entity, ServerLevel level) -> WorldJoinEvent.onSpawn(level, entity));
+            (Entity entity, ServerLevel level) -> GlowyEvent.onSpawn(level, entity));
+
+    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+      ServerPlayer player = handler.player;
+      GlowyEvent.onDisconnect(player);
+    });
+
   }
 
 }
