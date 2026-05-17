@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "mod_id",
+  "id": "${mod_id}",
   "version": "${version}",
   "name": "${mod_name}",
   "description": "${description}",
@@ -8,8 +8,8 @@
     "${mod_author}"
   ],
   "contact": {
-    "homepage": "${home_page}",
-    "issues": "${issue_tracker_url}"
+    "homepage": "https://github.com/JackieJK/GlowyPlayersRenewed",
+    "issues": "https://github.com/JackieJK/GlowyPlayersRenewed/issues"
   },
   "license": "${license}",
   "icon": "assets/${mod_id}/logo.png",
@@ -20,15 +20,12 @@
     ]
   },
   "mixins": [
+    "glowyplayers.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "java": ">=21"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabric-api": "*",
+    "minecraft": ">=26",
+    "java": ">=${java_version}"
   }
 }
-  

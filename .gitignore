@@ -21,3 +21,10 @@ build
 # other
 eclipse
 run
+
+fabric/runs
+neoforge/run
+
+.deepseek
+*.log
+*.lck
